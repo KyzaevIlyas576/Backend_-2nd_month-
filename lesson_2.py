@@ -22,7 +22,7 @@ class Bus(Car):
         self.seat_number = seat_number
     
     def drive_to(self, destination):
-        super().drive_to(destination)
+        # super().drive_to(destination)     # вызывает метод из родительского класса
         print(f"Автобус {self.model} едет в {destination}.")
 
 
