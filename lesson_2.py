@@ -38,7 +38,6 @@ class Truck(Car):
         self.seat_number = seat_number
     
     def drive_to(self, destination):
-        super().drive_to(destination)
         print(f"Грузовик {self.model} едет в {destination}.")
 
 
