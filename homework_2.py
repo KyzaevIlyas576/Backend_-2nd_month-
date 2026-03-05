@@ -60,7 +60,7 @@ class Friend(Person):
 #     - 2 объекта `Friend`
 # 7. Вызовите метод `introduce()` у каждого объекта
 
-Me = Person(name='Кызаев Ильяс', gender='М', birth_date=2004, occupation='студент', higher_education=False)
+me = Person(name='Кызаев Ильяс', gender='М', birth_date=2004, occupation='студент', higher_education=False)
 
 classmate1 = Classmate(name='Бексултан', gender='М', birth_date='2005', occupation='студент', higher_education=False,
                        group_name="ПИ-1/1")
@@ -69,8 +69,8 @@ classmate2 = Classmate(name='Мухаммед', gender='М', birth_date='2006', 
 classmate3 = Classmate(name='Айсалкын', gender='Ж', birth_date='2005', occupation='студент', higher_education=False,
                        group_name="ПИ-2/1")
 
-friend1 = Friend(name="Нурдин", gender="М", birth_date="2005", occupation="б. военный", higher_education=False,
-                 hobby='мирмикипинг (муравьи)')
+friend1 = Friend(name="Рамиль", gender="М", birth_date="2006", occupation="студент", higher_education=False,
+                 hobby='футбол')
 friend2 = Friend(name="Азирет", gender="М", birth_date="2005", occupation="воспитатель детсада", higher_education=False,
                  hobby='аниме')
 friend3 = Friend(name="Даша", gender="Ж", birth_date="2005", occupation="студент", higher_education=False,
@@ -78,7 +78,7 @@ friend3 = Friend(name="Даша", gender="Ж", birth_date="2005", occupation="с
 
 
 # Т.к. в методе introduce() - return print(), то можно написать так.
-Me.introduce()
+me.introduce()
 
 print("\n", "Однокурсники:")
 classmate1.introduce()
@@ -89,18 +89,42 @@ print("\n", "Мои (остальные) друзья:")
 friend1.introduce()
 friend2.introduce()
 friend3.introduce()
+print()
 
 
 # 8. Сделайте коммит, и выполните команду git push, чтобы ваши изменения загрузились на гитхаб.
 # Доп. команды есть в презентации., если git push не работает, обращаетесь к ментору.
-#
-# **Доп задание(не обязательно):**
+
+
+# **Доп. задание 1:**
 # Создайте несколько разных объектов (`Classmate`, `Friend`, `Person`). Поместите их все в один список.
 # Затем напишите цикл, который проходит по этому списку и для каждого объекта вызывает метод `introduce()`.
-#
-# **Доп задание 2(не обязательно):**
-# Создайте еще один класс-наследник `BestFriend`, который наследуется от класса `Friend`.
+
+people = [me, classmate1, classmate2, classmate3, friend1, friend2, friend3]
+print("Доп. задание 1:")
+for p in people:
+    p.introduce()
+print()
+
+
+# **Доп. задание 2 :**
+# Создайте ещё один класс-наследник `BestFriend`, который наследуется от класса `Friend`.
 # Добавьте ему уникальный атрибут, например, `shared_memory` (общее воспоминание). Переопределите метод `introduce()`
 # так, чтобы он сначала вызывал родительский метод `introduce()` из класса `Friend`, а затем допечатывал информацию из
 # своего уникального атрибута(т.е. shared_memory).
 
+class BestFriend(Friend):
+    def __init__(self, name, birth_date, occupation, higher_education, gender, hobby, shared_memory):
+        super().__init__(name, birth_date, occupation, higher_education, gender, hobby)
+        self.shared_memory = shared_memory
+
+
+    def introduce(self):
+        super().introduce()
+        return print(f"Наше общее воспоминание: {self.shared_memory}.")
+
+print("Доп. задание 2:")
+best_friend = BestFriend(name="Нурдин", gender="М", birth_date="2005", occupation="б. военный", higher_education=False,
+     hobby='мирмикипинг (муравьи)', shared_memory='мы ходили с Эдуардом (ещё одним лучшим другом) в кино на '
+                                                  'Mortal Kombat; также я навещал их в Карагачёвой роще')
+best_friend.introduce()
