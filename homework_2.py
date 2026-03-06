@@ -15,9 +15,7 @@ class Person:
             self.higher_education = "нет"
 
     def introduce(self):
-        # return (f"Меня зовут {self.name}, я {'родилась' if self.gender == 'ж' else 'родился'} в {self.birth_date},"
-        #         f" по профессии {self.occupation}, высшее образование - {self.higher_education}.")
-        return print(f"Меня зовут {self.name}, я {'родилась' if self.gender == 'ж' else 'родился'} в {self.birth_date},"
+        print(f"Меня зовут {self.name}, я {'родилась' if self.gender == 'ж' else 'родился'} в {self.birth_date},"
                 f" по профессии - {self.occupation}, высшее образование - {self.higher_education}.")
 
 # 3. Создайте два класса-наследника:
@@ -33,11 +31,11 @@ class Classmate(Person):
         self.group_name = group_name
 
     def introduce(self):
-        return print(
-            f'{"Мою однокурсницу" if self.gender == "ж" else "Моего однокурсника"} зовут {self.name}, '
-            f'{'она родилась' if self.gender == 'ж' else 'он родился'} в {self.birth_date}, '
-            f'по профессии - {self.occupation}, высшее образование - {self.higher_education}. '
-            f'{"Её" if self.gender == "ж" else "Его"} группа - {self.group_name}.')
+        print(
+            f"{'Мою однокурсницу' if self.gender == 'ж' else 'Моего однокурсника'} зовут {self.name}, "
+            f"{'она родилась' if self.gender == 'ж' else 'он родился'} в {self.birth_date}, "
+            f"по профессии - {self.occupation}, высшее образование - {self.higher_education}. "
+            f"{'Её' if self.gender == 'ж' else 'Его'} группа - {self.group_name}.")
 
 
 class Friend(Person):
@@ -46,8 +44,8 @@ class Friend(Person):
         self.hobby = hobby
 
     def introduce(self):
-        return print(
-            f"{"Мою подругу" if self.gender == "ж" else "Моего друга"} зовут {self.name}, "
+        print (
+            f"{'Мою подругу' if self.gender == 'ж' else 'Моего друга'} зовут {self.name}, "
             f"{'она родилась' if self.gender == 'ж' else 'он родился'} в {self.birth_date}, "
             f"по профессии - {self.occupation}, высшее образование - {self.higher_education}. "
             f"{'Её' if self.gender == 'ж' else 'Его'} хобби - {self.hobby}.")

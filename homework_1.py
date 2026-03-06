@@ -38,9 +38,9 @@ print()     # пустая строка
 
 # 3) так же добавьте метод introduce, в котором экземпляр будет представляться
 # (например: меня зовут …, я родился …, по профессии …, высшего образования нет)
-print(Person.introduce(person1))
-print(Person.introduce(person2))
-print(Person.introduce(person3))
+print(person1.introduce())
+print(person2.introduce())
+print(person3.introduce())
 # А можно сделать return print() в методе, тогда будет не print(Person.introduce()), а просто Person.introduce().
 
 # Это домашнее задание можно отправить файлом, не через GitHub.
