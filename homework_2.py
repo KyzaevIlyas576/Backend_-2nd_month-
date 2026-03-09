@@ -5,7 +5,7 @@
 class Person:
     def __init__(self, name, birth_date, occupation, higher_education, gender="Неизвестно"):
         self.name = name
-        self.gender = gender.lower()
+        self.gender = gender.title()
         self.birth_date = int(birth_date)
         self.occupation = occupation
         self.higher_education = bool(higher_education)
@@ -15,7 +15,7 @@ class Person:
             self.higher_education = "нет"
 
     def introduce(self):
-        print(f"Меня зовут {self.name}, я {'родилась' if self.gender == 'ж' else 'родился'} в {self.birth_date},"
+        print(f"Меня зовут {self.name}, я {'родилась' if self.gender == 'Ж' else 'родился'} в {self.birth_date},"
                 f" по профессии - {self.occupation}, высшее образование - {self.higher_education}.")
 
 # 3. Создайте два класса-наследника:
@@ -32,10 +32,10 @@ class Classmate(Person):
 
     def introduce(self):
         print(
-            f"{'Мою однокурсницу' if self.gender == 'ж' else 'Моего однокурсника'} зовут {self.name}, "
-            f"{'она родилась' if self.gender == 'ж' else 'он родился'} в {self.birth_date}, "
+            f"{'Мою однокурсницу' if self.gender == 'Ж' else 'Моего однокурсника'} зовут {self.name}, "
+            f"{'она родилась' if self.gender == 'Ж' else 'он родился'} в {self.birth_date}, "
             f"по профессии - {self.occupation}, высшее образование - {self.higher_education}. "
-            f"{'Её' if self.gender == 'ж' else 'Его'} группа - {self.group_name}.")
+            f"{'Её' if self.gender == 'Ж' else 'Его'} группа - {self.group_name}.")
 
 
 class Friend(Person):
@@ -44,11 +44,11 @@ class Friend(Person):
         self.hobby = hobby
 
     def introduce(self):
-        print (
-            f"{'Мою подругу' if self.gender == 'ж' else 'Моего друга'} зовут {self.name}, "
-            f"{'она родилась' if self.gender == 'ж' else 'он родился'} в {self.birth_date}, "
+        print(
+            f"{'Мою подругу' if self.gender == 'Ж' else 'Моего друга'} зовут {self.name}, "
+            f"{'она родилась' if self.gender == 'Ж' else 'он родился'} в {self.birth_date}, "
             f"по профессии - {self.occupation}, высшее образование - {self.higher_education}. "
-            f"{'Её' if self.gender == 'ж' else 'Его'} хобби - {self.hobby}.")
+            f"{'Её' if self.gender == 'Ж' else 'Его'} хобби - {self.hobby}.")
 
 # 5. В каждом классе-наследнике **переопределите** метод `introduce()`
 # (он должен работать немного иначе, чем у `Person`).
@@ -75,7 +75,6 @@ friend3 = Friend(name="Даша", gender="Ж", birth_date="2005", occupation="с
                  hobby='аниме')
 
 
-# Т.к. в методе introduce() - return print(), то можно написать так.
 me.introduce()
 
 print("\n", "Однокурсники:")
@@ -119,7 +118,7 @@ class BestFriend(Friend):
 
     def introduce(self):
         super().introduce()
-        return print(f"Наше общее воспоминание: {self.shared_memory}.")
+        print(f"Наше общее воспоминание: {self.shared_memory}.")
 
 print("Доп. задание 2:")
 best_friend = BestFriend(name="Нурдин", gender="М", birth_date="2005", occupation="б. военный", higher_education=False,
