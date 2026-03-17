@@ -21,12 +21,12 @@ class User:
         if User.validate_phone_number(phone_number):
             # создаём объект класса User
             new_user = cls(name=name, phone_number=phone_number)
-            # new_user = User(name=name, phone_number=phone_number) # так не следует
+            # new_user = User(name=name, phone_number=phone_number) # так не следует делать
             return new_user
         else:
             raise ValueError(f"неправильный формат телефона {phone_number}")
 
-    @staticmethod
+    @staticmethod   # не относится ни к объекту, ни к классу - обычная функция
     def validate_phone_number(phone_number):
         if not phone_number.isdigit():
             return False
