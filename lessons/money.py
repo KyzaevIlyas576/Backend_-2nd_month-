@@ -1,3 +1,4 @@
+# lesson 5
 class Money:
     def __init__(self, amount, currency='KGS'):
         self.amount = amount
@@ -32,10 +33,21 @@ class Money:
         new_money = Money(new_amount, other.currency)
         return new_money
 
-money_igor = Money(100)
-money_artur = Money(200)
-print(money_igor)
-print(money_igor == money_artur)
-print(money_artur > money_igor)
-total_money = money_igor + money_artur
-print(total_money)
+    def __sub__(self, other):
+        new_amount = self.amount - other.amount
+        new_money = Money(new_amount, self.currency)
+        return new_money
+
+
+def print_money():
+    ...
+
+
+if __name__ == '__main__':
+    money_igor = Money(100)
+    money_artur = Money(200)
+    print(money_igor)
+    print(money_igor == money_artur)
+    print(money_artur > money_igor)
+    total_money = money_igor + money_artur
+    print(total_money)
