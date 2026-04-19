@@ -1,5 +1,9 @@
-__pycache__/
-*.pyc
+__pychache__/
+.venv/
+venv/
 .env
-.vscode/
-.idea/
+
+# базы данных
+*.db
+*.sqlite
+*.sqlite3
