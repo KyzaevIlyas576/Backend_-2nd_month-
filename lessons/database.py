@@ -19,5 +19,8 @@ def add_student(conn, name, age, city):
     )
     conn.commit()
 
-def delete_student():
+def delete_student(conn):
+    # conn.execute('''
+    # DELETE FROM students
+    # ''')
     ...
